@@ -71,7 +71,8 @@ void startGame(Object object) {
         heart1Position.y = 1650;
         heart2Position.y = 1650;
         heart3Position.y = 1650;
-    }else {
+    }
+    else {
         screenPosition.y = janela_altura / 2;
         airplanePosition.y = -120;
         pointerPosition.y = 0;
@@ -406,7 +407,7 @@ void arrow_keys(int tecla, int x, int y) {
 
 void resize(GLsizei w, GLsizei h) {
     if (h == 0) h = 1;
-    
+
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -418,11 +419,7 @@ void resize(GLsizei w, GLsizei h) {
         gluOrtho2D(0.0f, janela_altura * w / h, 0.0f, janela_largura);
     }
 
-
     glMatrixMode(GL_MODELVIEW);
-
-   
-
 }
 
 void river() {
@@ -453,30 +450,30 @@ void airplane(Object object) {
 
     glBegin(GL_POLYGON);
     glVertex2f((x - offsetX), y);
-    glVertex2f((x - offsetX), y + 5);
-    glVertex2f(x, y + 12);
-    glVertex2f(x, y + 7);
+    glVertex2f((x - offsetX), y + 8);
+    glVertex2f(x, y + 16);
+    glVertex2f(x, y + 8);
     glEnd();
 
     glBegin(GL_POLYGON);
     glVertex2f((x + offsetX), y);
-    glVertex2f((x + offsetX), y + 5);
-    glVertex2f(x, y + 12);
-    glVertex2f(x, y + 7);
+    glVertex2f((x + offsetX), y + 8);
+    glVertex2f(x, y + 16);
+    glVertex2f(x, y + 8);
     glEnd();
 
     glBegin(GL_POLYGON);
-    glVertex2f((x - offsetX), y - offsetY);
     glVertex2f((x - offsetX + 5), y - offsetY);
-    glVertex2f(x, y - offsetY + 5);
+    glVertex2f((x - offsetX + 5), y - offsetY + 5);
     glVertex2f(x, y - offsetY + 10);
+    glVertex2f(x, y - offsetY + 5);
     glEnd();
 
     glBegin(GL_POLYGON);
-    glVertex2f((x + offsetX), y - offsetY);
     glVertex2f((x + offsetX - 5), y - offsetY);
-    glVertex2f(x, y - offsetY + 5);
+    glVertex2f((x + offsetX - 5), y - offsetY + 5);
     glVertex2f(x, y - offsetY + 10);
+    glVertex2f(x, y - offsetY + 5);
     glEnd();
 }
 
@@ -1390,10 +1387,12 @@ void display() {
         heart(heart1Position);
         heart(heart2Position);
         heart(heart3Position);
-    } else if (life == 2) {
+    }
+    else if (life == 2) {
         heart(heart1Position);
         heart(heart2Position);
-    } else if (life == 1) {
+    }
+    else if (life == 1) {
         heart(heart1Position);
     }
 
